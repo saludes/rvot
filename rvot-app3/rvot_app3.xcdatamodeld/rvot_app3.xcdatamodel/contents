@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="untitled.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Course" representedClassName="Course" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="exams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Examination" inverseName="course" inverseEntity="Examination" syncable="YES"/>
+    </entity>
+    <entity name="Examination" representedClassName="Examination" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="course" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="exams" inverseEntity="Course" syncable="YES"/>
+        <relationship name="issues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Issue" inverseName="exam" inverseEntity="Issue" syncable="YES"/>
+    </entity>
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="page" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="issue" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="exercises" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="markings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Marking" inverseName="exercise" inverseEntity="Marking" syncable="YES"/>
+    </entity>
+    <entity name="Issue" representedClassName="Issue" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="document" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="exam" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Examination" inverseName="issues" inverseEntity="Examination" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="issue" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="issue" inverseEntity="Student" syncable="YES"/>
+    </entity>
+    <entity name="Marking" representedClassName="Marking" syncable="YES">
+        <attribute name="grade" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="stamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="exercise" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="markings" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="student" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Student" inverseName="markings" inverseEntity="Student" syncable="YES"/>
+    </entity>
+    <entity name="Student" representedClassName="Student" syncable="YES">
+        <attribute name="fName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="issue" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="students" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="markings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Marking" inverseName="student" inverseEntity="Marking" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-1323" positionY="-1512" width="128" height="90"/>
+        <element name="Examination" positionX="-1125" positionY="-1512" width="128" height="105"/>
+        <element name="Exercise" positionX="-693" positionY="-1476" width="128" height="105"/>
+        <element name="Issue" positionX="-900" positionY="-1482" width="128" height="120"/>
+        <element name="Marking" positionX="-918" positionY="-1269" width="128" height="105"/>
+        <element name="Student" positionX="-1314" positionY="-1377" width="128" height="120"/>
+    </elements>
 </model>

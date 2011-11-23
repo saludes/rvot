@@ -7,9 +7,14 @@
 //
 
 #import "RVAppDelegate.h"
+#import "Course.h"
+#import "Examination.h"
+#import "Issue.h"
+#import "RVIssueController.h"
 
 @implementation RVAppDelegate
 
+@synthesize courseCode, courseName, examTitle, issueDate, selectedColumn;
 @synthesize window = _window;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize managedObjectModel = __managedObjectModel;
@@ -23,9 +28,13 @@
     [super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [browser setTitle:@"assignatura" ofColumn:0];
+    [browser setTitle:@"examen" ofColumn:1];
+    [browser setTitle:@"curs" ofColumn:2];
+    [browser setDoubleAction:@selector(newItem:)];
+    
 }
 
 /**
@@ -35,7 +44,7 @@
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *libraryURL = [[fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
-    return [libraryURL URLByAppendingPathComponent:@"rvot_app3"];
+    return [libraryURL URLByAppendingPathComponent:@"Rvot"];
 }
 
 /**
@@ -198,4 +207,330 @@
     return NSTerminateNow;
 }
 
+ - (id)rootItemForBrowser:(NSBrowser *)browser {
+     return nil;
+}
+
+
+- (NSInteger)browser:(NSBrowser *)browser numberOfChildrenOfItem:(id)item {
+    if (item == nil)
+        return [[Course allCourses:[self managedObjectContext]] count];
+    
+    NSManagedObject* mitem = item;
+    if ([mitem isMemberOfClass:[Course class]])
+        return [[(Course*)item exams] count];
+    if ([mitem isMemberOfClass:[Examination class]])
+        return [[(Examination*)item issues] count];
+    if ([mitem isMemberOfClass:[Issue class]])
+        return 0;
+    NSLog(@"No a valid class");
+    return 0;
+}
+
+NSArray* sortAscending(NSString* key);
+
+
+
+NSArray* sortAscending(NSString* key) {
+    return [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:key ascending:YES]];
+}
+
+- (NSManagedObject*)selectedInBrowser {
+    //NSBrowser* browser = [self browser];
+    NSInteger column = [browser selectedColumn];
+    if (column < 0) return nil;
+    id selected = [browser selectedCellInColumn:0];
+    if (!selected) return nil;
+    Course* course = [Course withName:[selected stringValue] inContext:self.managedObjectContext];
+    if (column == 0) return (NSManagedObject*)course;
+    
+    selected = [browser selectedCellInColumn:1];
+    if (!selected) return nil;
+    Examination* exam = [course examWithName:[selected stringValue] inContext:self.managedObjectContext];
+    if (column  == 1) return (NSManagedObject*)exam;
+    
+    Issue* issue = [exam issueAtIndex:[browser selectedRowInColumn:2] inContext:self.managedObjectContext];
+    if (column == 2) return (NSManagedObject*)issue;
+    NSLog(@"No such column");
+    return nil;
+}
+
+
+- (id)browser:(NSBrowser *)browser child:(NSInteger)index ofItem:(id)item {
+    NSManagedObject* mitem = item;
+    
+    if (mitem == nil) // Root
+        return [[Course allCourses:[self managedObjectContext]] objectAtIndex:index];
+    
+    if ([mitem isMemberOfClass:[Course class]]) 
+        return [[[(Course*)mitem exams] sortedArrayUsingDescriptors:sortAscending(@"title")] objectAtIndex:index];
+    
+    if ([mitem isMemberOfClass:[Examination class]])
+    return [(Examination*)mitem issueAtIndex:index inContext:[self managedObjectContext]];
+    
+    return nil; // Issue
+}
+
+- (BOOL)browser:(NSBrowser *)browser isLeafItem:(id)item {
+    NSManagedObject* mitem = item;
+    if (item == nil)
+        return NO;
+    return !([mitem isMemberOfClass:[Course class]] || [mitem isMemberOfClass:[Examination class]]);
+}
+
+- (id)browser:(NSBrowser *)browser objectValueForItem:(id)item {
+    NSManagedObject* mitem = item;
+    if (mitem == nil)
+        return @"none";
+    if ([mitem isMemberOfClass:[Course class]])
+        return ((Course*)mitem).name;
+    if ([mitem isMemberOfClass:[Examination class]])
+        return ((Examination*)mitem).title;
+    if ([mitem isMemberOfClass:[Issue class]])
+        return ((Issue*)mitem).date;
+    NSLog(@"Not a valid class");
+    return nil;
+}
+
+
+
+- (IBAction)createCourse:(id)sender{    
+    [NSApp beginSheet:coursePanel
+       modalForWindow:[self window]
+    modalDelegate:self
+       didEndSelector:@selector(courseDidEndSheet:returnCode:contextInfo:)
+          contextInfo:nil];
+}
+
+
+- (void)courseDidEndSheet:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode != NSOKButton) return;
+    
+    NSError **err;
+    NSManagedObject* course = [NSEntityDescription
+                               insertNewObjectForEntityForName:@"Course"
+                               inManagedObjectContext:[self managedObjectContext]];
+    [course setValue:courseName forKey:@"name"] ;
+    [course setValue:courseCode forKey:@"code"];
+    [[self managedObjectContext] save: err];
+    if (err != noErr) NSLog(@"course save error");
+}
+
+- (void)examDidEndSheet:(NSWindow*)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode != NSOKButton) return;
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSError **err;
+    Examination* exam = [Examination newWithTitle:examTitle inContext:context];
+    NSString* parentname = [[[browser selectedCells] objectAtIndex:0] stringValue];
+    Course* parent = [Course withName:parentname inContext:context];
+    exam.course = parent;
+    [context save: err];
+    if (err != noErr) NSLog(@"exam save error");
+}
+
+
+- (void)issueDidEndSheet:(IssuePanel*)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+    if (returnCode != NSOKButton) return;
+    
+    NSError **err;
+    NSManagedObjectContext *context = [self managedObjectContext];
+    Issue* issue = [Issue newIssueAtDate:issueDate inContext:context];
+    NSString* pName = [[[browser selectedCells] objectAtIndex:0] stringValue];
+    NSString* ppName = [[browser selectedCellInColumn:0] stringValue];
+    Course* pp = [Course withName:ppName inContext:context];
+    Examination* p = [pp examWithName:pName inContext:context];
+    issue.exam = p;
+    [context save:err];
+    if (err != noErr) NSLog(@"issue save error");
+}
+
+- (IBAction)acceptDialog:(id)sender {
+	[NSApp endSheet:[sender window] returnCode:NSOKButton];
+    [[sender window] orderOut:self];
+
+}
+
+- (IBAction)cancelDialog:(id)sender {
+    [NSApp endSheet:[sender window] returnCode:NSCancelButton];
+    [[sender window] orderOut:self];
+}
+
+
+-(IBAction)newItem:(id)sender {
+    Issue* issue;
+    switch ([(NSBrowser*)sender selectedColumn]) {
+        case 0:  // New Examination
+            [NSApp beginSheet:examPanel modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(examDidEndSheet:returnCode:contextInfo:) contextInfo:nil];
+            return;
+        case 1: // New issue
+            [NSApp beginSheet:issuePanel modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(issueDidEndSheet:returnCode:contextInfo:) contextInfo:nil];
+            return;
+        case 2: // Open pdf panel
+            issue = (Issue*)[self selectedInBrowser];
+            NSLog(@"Selected issue for date %@", issue.date);
+            if (!issue.document) 
+                [self setNewDocument:self];
+            else
+                [self openPdfPanelFor:issue making:NO];
+    }
+    NSLog(@"Selected column %ld", [(NSBrowser*)sender selectedColumn]);
+    [_window displayIfNeeded];
+}
+
+
+- (IBAction) refreshBrowserView:(id)sender {
+    NSString* wTitle = @"";
+    switch (browser.selectedColumn) {
+        case 2: // Issue column
+            wTitle = [NSString stringWithFormat: @" / %@", [[browser selectedCellInColumn:2] stringValue]];
+        case 1:
+            wTitle = [NSString stringWithFormat:@" / %@%@", [[browser selectedCellInColumn:1] stringValue], wTitle];
+        case 0: // Course column
+            wTitle = [NSString stringWithFormat:@"%@%@", [[browser selectedCellInColumn:0] stringValue], wTitle];
+        }
+    [newCourseBtn setEnabled:(browser.selectedColumn == 0)];
+    [[self window] setTitle:wTitle];
+}
+
+- (void)openPdfPanelFor:(Issue*)issue making:(BOOL)make {
+    PDFDocument     *pdfDoc;
+    
+    // Create PDFDocument.
+    pdfDoc = [[PDFDocument alloc] initWithURL: issue.document];
+        // Set document.
+    [docView setDocument: pdfDoc];
+    
+    // Set issue exercises
+    if (make) {
+        [issue makeExercises:[pdfDoc pageCount] inContext:self.managedObjectContext];
+    }
+    
+    [pdfDoc release];
+    
+    // Default display mode.
+    [docView setAutoScales: YES];
+    [docWindow orderFront:self]; 
+    
+}   
+
+
+- (IBAction)makeCopies:(id)sender  {
+    Issue* issue = (Issue*)[self selectedInBrowser];
+    if (!issue) return;
+    
+    NSSavePanel *dialog = [NSSavePanel savePanel];
+    [dialog setTitle:@"Save copies into"];
+    [dialog setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
+    [dialog setDirectoryURL:[NSURL fileURLWithPath: NSHomeDirectory()]];
+    if ([dialog runModal] != NSFileHandlingPanelOKButton) return;
+    NSLog(@"About to make copies to %@", [dialog URL]);
+    [issue makeCopiesTo:[dialog URL]];
+}
+
+- (BOOL)validateMenuItem:(id)item {
+    // NSLog(@"Menu item:%@", [item title]);
+    Issue* issue = [self selectedIssue];
+    if (issue) {
+        if (issue.document && [[item title] rangeOfString:@"copies"].location != NSNotFound) return YES;
+        if ([[item title] rangeOfString:@"annotations"].location != NSNotFound) return YES;
+        if (issue.document && [[item title] rangeOfString:@"Markings"].location != NSNotFound) return YES;
+        return YES;
+    }
+    return NO;
+}
+
+- (Issue*)selectedIssue {
+    Issue* issue = (Issue*)[self selectedInBrowser];
+    if (issue && [issue isMemberOfClass:[Issue class]])
+        return issue;
+    else
+        return nil;
+}
+
+- (NSURL*)askPdfURL {
+    NSOpenPanel *dialog = [NSOpenPanel openPanel];
+    [dialog setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
+    [dialog setAllowsMultipleSelection:NO];
+    [dialog setDirectoryURL:[NSURL fileURLWithPath: NSHomeDirectory()]];
+    if ([dialog runModal] == NSFileHandlingPanelOKButton)
+        return [[dialog URLs] objectAtIndex:0];
+    return nil;
+}
+
+
+- (IBAction)tagAnnotations:(id)sender {
+    Issue* issue = [self selectedIssue];
+    if (!issue) return;
+    NSURL *source = [self askPdfURL];
+    if (!source) return;
+    
+    NSURL *destination = [NSURL URLWithString:
+            [NSString
+                stringWithFormat:@"%@-tagged.pdf",
+             [[source URLByDeletingPathExtension] absoluteString]]];
+    NSLog(@"About to tag into %@", destination);
+    [IssueCtrl tagAnnotationsFrom:source into:destination];
+}
+
+- (IBAction)markIssue:(id)sender {
+    Issue* issue = self.selectedIssue;
+    if ([issue countMarkings] > 0) {        
+        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        [alert setMessageText:@"Existing markings"];
+        [alert
+         setInformativeText:[NSString
+                             stringWithFormat:@"This issue has already %d markings. Remove them?", 
+                             [issue countMarkings]]];
+        [alert addButtonWithTitle:@"Remove"];
+        [alert addButtonWithTitle:@"Cancel marking"]; 
+        [alert addButtonWithTitle:@"Add to them"];
+        switch ([alert runModal]) {
+            case NSAlertFirstButtonReturn: // Remove
+                [issue removeAllMarkingsUsing:self.managedObjectContext];
+                break;
+            case NSAlertSecondButtonReturn: // Cancel
+                return;
+            case NSAlertThirdButtonReturn: // Add to them
+                break;
+        }
+    }
+    
+    NSURL *source = [self askPdfURL];
+    if (!source) return;
+    [IssueCtrl markURL:source];
+    
+    NSSavePanel *dialog = [NSSavePanel savePanel];
+    [dialog setTitle:@"Save markings into"];
+    [dialog setAllowedFileTypes:[NSArray arrayWithObject:@"csv"]];
+    [dialog setDirectoryURL:[NSURL fileURLWithPath: NSHomeDirectory()]];
+    if ([dialog runModal] != NSFileHandlingPanelOKButton) return;
+    NSLog(@"About to save markings into %@", [dialog URL]);
+    [IssueCtrl writeCSVtoURL:[dialog URL]];
+}
+
+
+- (IBAction)setNewDocument:(id)sender {
+    NSURL* url = [self askPdfURL];
+    if (!url) return;
+    self.selectedIssue.document = url;
+    [self openPdfPanelFor:self.selectedIssue making:YES];
+    
+    NSError **err;
+    [self.managedObjectContext save:err];
+    if (err != noErr) NSLog(@"issue save error when setting PDF document");
+    
+    NSLog(@"PDF document set to %@", self.selectedIssue.document);    
+}
+
 @end
+
+
+
+/*@implementation IsCourseColumn
++ (Class)transformValueClass { return [NSNumber class]; }
++ (BOOL)allowsReverseTransformation {return NO; }
+- (id)transformedValue:(id)value { NSLog(@"Column is %d", [value intValue]); return [NSNumber numberWithBool: ([value intValue] == 0)]; }
+@end
+*/
+

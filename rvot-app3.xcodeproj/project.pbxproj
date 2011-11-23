@@ -7,30 +7,81 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8826907F14769AE600128D82 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 8826907E14769AE600128D82 /* Exercise.m */; };
+		882690831476BB8000128D82 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 882690821476BB8000128D82 /* Issue.m */; };
+		8871B0AA147A99310016B365 /* RVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8871B0A9147A99310016B365 /* RVAppDelegate.m */; };
+		8871B0AB147AC8E40016B365 /* SHDataMatrixReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31794147983C00033A822 /* SHDataMatrixReader.m */; };
+		887DA719146C726D00750D0A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 887DA718146C726D00750D0A /* Course.m */; };
+		887DA71D146C747F00750D0A /* Examination.m in Sources */ = {isa = PBXBuildFile; fileRef = 887DA71C146C747F00750D0A /* Examination.m */; };
+		8882DE00147CEAB20070010B /* Marking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8882DDFF147CEAB20070010B /* Marking.m */; };
+		888FE1F51477D84A00B055E8 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 888FE1F41477D84A00B055E8 /* Student.m */; };
+		888FE1F81477E71100B055E8 /* RVStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888FE1F71477E71100B055E8 /* RVStudentController.m */; };
 		889BF857146911910082640F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BF856146911910082640F /* Cocoa.framework */; };
 		889BF861146911910082640F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 889BF85F146911910082640F /* InfoPlist.strings */; };
 		889BF863146911910082640F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 889BF862146911910082640F /* main.m */; };
 		889BF867146911910082640F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 889BF865146911910082640F /* Credits.rtf */; };
-		889BF86A146911910082640F /* RVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 889BF869146911910082640F /* RVAppDelegate.m */; };
 		889BF86D146911910082640F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889BF86B146911910082640F /* MainMenu.xib */; };
 		889BF870146911910082640F /* rvot_app3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 889BF86E146911910082640F /* rvot_app3.xcdatamodeld */; };
+		88E17148147A67C300A70005 /* SHDataMatrixWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31823147993180033A822 /* SHDataMatrixWriter.m */; };
+		88E1714A147A97D700A70005 /* libdmtx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3179014797F470033A822 /* libdmtx.dylib */; };
+		88E3177D14792FB90033A822 /* RVIssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E3177C14792FB90033A822 /* RVIssueController.m */; };
+		88E31809147989FA0033A822 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BF856146911910082640F /* Cocoa.framework */; };
+		88E3180F147989FA0033A822 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88E3180D147989FA0033A822 /* InfoPlist.strings */; };
+		88E31811147989FA0033A822 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31810147989FA0033A822 /* main.m */; };
+		88E31815147989FA0033A822 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 88E31813147989FA0033A822 /* Credits.rtf */; };
+		88E3181B147989FA0033A822 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E31819147989FA0033A822 /* MainMenu.xib */; };
+		88E3181F14798A460033A822 /* SHDataMatrixReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31794147983C00033A822 /* SHDataMatrixReader.m */; };
+		88E3182014798A550033A822 /* libdmtx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3179014797F470033A822 /* libdmtx.dylib */; };
+		88E31822147992FF0033A822 /* SHDataMatrixWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = 88E31821147992FF0033A822 /* SHDataMatrixWriter.h */; };
+		88E31824147993180033A822 /* SHDataMatrixWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31823147993180033A822 /* SHDataMatrixWriter.m */; };
+		88E3983514742CE4001725CA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3983414742CE4001725CA /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8826907D14769AE600128D82 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = "rvot-app3/Exercise.h"; sourceTree = "<group>"; };
+		8826907E14769AE600128D82 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = "rvot-app3/Exercise.m"; sourceTree = "<group>"; };
+		882690811476BB8000128D82 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Issue.h; path = "rvot-app3/Issue.h"; sourceTree = "<group>"; };
+		882690821476BB8000128D82 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Issue.m; path = "rvot-app3/Issue.m"; sourceTree = "<group>"; };
+		8871B0A9147A99310016B365 /* RVAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVAppDelegate.m; sourceTree = "<group>"; };
+		887DA717146C726D00750D0A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = "rvot-app3/Course.h"; sourceTree = "<group>"; };
+		887DA718146C726D00750D0A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = "rvot-app3/Course.m"; sourceTree = "<group>"; };
+		887DA71B146C747F00750D0A /* Examination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Examination.h; path = "rvot-app3/Examination.h"; sourceTree = "<group>"; };
+		887DA71C146C747F00750D0A /* Examination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Examination.m; path = "rvot-app3/Examination.m"; sourceTree = "<group>"; };
+		8882DDFE147CEAB20070010B /* Marking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marking.h; sourceTree = "<group>"; };
+		8882DDFF147CEAB20070010B /* Marking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marking.m; sourceTree = "<group>"; };
+		888FE1F31477D84A00B055E8 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Student.h; path = "rvot-app3/Student.h"; sourceTree = "<group>"; };
+		888FE1F41477D84A00B055E8 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Student.m; path = "rvot-app3/Student.m"; sourceTree = "<group>"; };
+		888FE1F61477E71100B055E8 /* RVStudentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVStudentController.h; sourceTree = "<group>"; };
+		888FE1F71477E71100B055E8 /* RVStudentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVStudentController.m; sourceTree = "<group>"; };
 		889BF852146911910082640F /* rvot-app3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rvot-app3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		889BF856146911910082640F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		889BF859146911910082640F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		889BF85A146911910082640F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		889BF85B146911910082640F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		889BF85E146911910082640F /* rvot-app3-Info.plist */ = {isa = PBXFileReference; path = "rvot-app3-Info.plist"; sourceTree = "<group>"; };
+		889BF85E146911910082640F /* rvot-app3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rvot-app3-Info.plist"; sourceTree = "<group>"; };
 		889BF860146911910082640F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		889BF862146911910082640F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		889BF864146911910082640F /* rvot-app3-Prefix.pch */ = {isa = PBXFileReference; path = "rvot-app3-Prefix.pch"; sourceTree = "<group>"; };
+		889BF864146911910082640F /* rvot-app3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rvot-app3-Prefix.pch"; sourceTree = "<group>"; };
 		889BF866146911910082640F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		889BF868146911910082640F /* RVAppDelegate.h */ = {isa = PBXFileReference; path = RVAppDelegate.h; sourceTree = "<group>"; };
-		889BF869146911910082640F /* RVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVAppDelegate.m; sourceTree = "<group>"; };
+		889BF868146911910082640F /* RVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVAppDelegate.h; sourceTree = "<group>"; };
 		889BF86C146911910082640F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		889BF86F146911910082640F /* rvot_app3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = rvot_app3.xcdatamodel; sourceTree = "<group>"; };
+		88E3177B14792FB90033A822 /* RVIssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVIssueController.h; sourceTree = "<group>"; };
+		88E3177C14792FB90033A822 /* RVIssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVIssueController.m; sourceTree = "<group>"; };
+		88E3179014797F470033A822 /* libdmtx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdmtx.dylib; path = usr/local/lib/libdmtx.dylib; sourceTree = SDKROOT; };
+		88E31792147980520033A822 /* dmtx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dmtx.h; path = ../usr/local/include/dmtx.h; sourceTree = DEVELOPER_DIR; };
+		88E31793147983C00033A822 /* SHDataMatrixReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDataMatrixReader.h; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixReader.h"; sourceTree = SOURCE_ROOT; };
+		88E31794147983C00033A822 /* SHDataMatrixReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDataMatrixReader.m; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixReader.m"; sourceTree = SOURCE_ROOT; };
+		88E31807147989FA0033A822 /* mmtext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mmtext.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E3180C147989FA0033A822 /* mmtext-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mmtext-Info.plist"; sourceTree = "<group>"; };
+		88E3180E147989FA0033A822 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		88E31810147989FA0033A822 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		88E31812147989FA0033A822 /* mmtext-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mmtext-Prefix.pch"; sourceTree = "<group>"; };
+		88E31814147989FA0033A822 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		88E3181A147989FA0033A822 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		88E31821147992FF0033A822 /* SHDataMatrixWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDataMatrixWriter.h; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixWriter.h"; sourceTree = SOURCE_ROOT; };
+		88E31823147993180033A822 /* SHDataMatrixWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDataMatrixWriter.m; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixWriter.m"; sourceTree = SOURCE_ROOT; };
+		88E3983414742CE4001725CA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +89,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88E1714A147A97D700A70005 /* libdmtx.dylib in Frameworks */,
+				88E3983514742CE4001725CA /* Quartz.framework in Frameworks */,
 				889BF857146911910082640F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E31804147989FA0033A822 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E3182014798A550033A822 /* libdmtx.dylib in Frameworks */,
+				88E31809147989FA0033A822 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +110,10 @@
 		889BF847146911900082640F = {
 			isa = PBXGroup;
 			children = (
+				889BF86B146911910082640F /* MainMenu.xib */,
+				88EABE2D1477BD3D0017058C /* Model */,
 				889BF85C146911910082640F /* rvot-app3 */,
+				88E3180A147989FA0033A822 /* mmtext */,
 				889BF855146911910082640F /* Frameworks */,
 				889BF853146911910082640F /* Products */,
 			);
@@ -58,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				889BF852146911910082640F /* rvot-app3.app */,
+				88E31807147989FA0033A822 /* mmtext.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,29 +131,25 @@
 		889BF855146911910082640F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88E3179014797F470033A822 /* libdmtx.dylib */,
+				88E3983414742CE4001725CA /* Quartz.framework */,
+				889BF85B146911910082640F /* Foundation.framework */,
+				889BF85A146911910082640F /* CoreData.framework */,
+				889BF859146911910082640F /* AppKit.framework */,
 				889BF856146911910082640F /* Cocoa.framework */,
-				889BF858146911910082640F /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		889BF858146911910082640F /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				889BF859146911910082640F /* AppKit.framework */,
-				889BF85A146911910082640F /* CoreData.framework */,
-				889BF85B146911910082640F /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		889BF85C146911910082640F /* rvot-app3 */ = {
 			isa = PBXGroup;
 			children = (
+				8871B0A9147A99310016B365 /* RVAppDelegate.m */,
 				889BF868146911910082640F /* RVAppDelegate.h */,
-				889BF869146911910082640F /* RVAppDelegate.m */,
-				889BF86B146911910082640F /* MainMenu.xib */,
-				889BF86E146911910082640F /* rvot_app3.xcdatamodeld */,
+				88E3177B14792FB90033A822 /* RVIssueController.h */,
+				88E3177C14792FB90033A822 /* RVIssueController.m */,
+				888FE1F61477E71100B055E8 /* RVStudentController.h */,
+				888FE1F71477E71100B055E8 /* RVStudentController.m */,
 				889BF85D146911910082640F /* Supporting Files */,
 			);
 			path = "rvot-app3";
@@ -103,6 +165,52 @@
 				889BF865146911910082640F /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88E3180A147989FA0033A822 /* mmtext */ = {
+			isa = PBXGroup;
+			children = (
+				88E31792147980520033A822 /* dmtx.h */,
+				88E31821147992FF0033A822 /* SHDataMatrixWriter.h */,
+				88E31793147983C00033A822 /* SHDataMatrixReader.h */,
+				88E31794147983C00033A822 /* SHDataMatrixReader.m */,
+				88E31823147993180033A822 /* SHDataMatrixWriter.m */,
+				88E31810147989FA0033A822 /* main.m */,
+				88E31819147989FA0033A822 /* MainMenu.xib */,
+				88E3180B147989FA0033A822 /* Supporting Files */,
+			);
+			path = mmtext;
+			sourceTree = "<group>";
+		};
+		88E3180B147989FA0033A822 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88E3180C147989FA0033A822 /* mmtext-Info.plist */,
+				88E3180D147989FA0033A822 /* InfoPlist.strings */,
+				88E31812147989FA0033A822 /* mmtext-Prefix.pch */,
+				88E31813147989FA0033A822 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88EABE2D1477BD3D0017058C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				889BF86E146911910082640F /* rvot_app3.xcdatamodeld */,
+				8882DDFE147CEAB20070010B /* Marking.h */,
+				8882DDFF147CEAB20070010B /* Marking.m */,
+				882690811476BB8000128D82 /* Issue.h */,
+				882690821476BB8000128D82 /* Issue.m */,
+				8826907D14769AE600128D82 /* Exercise.h */,
+				8826907E14769AE600128D82 /* Exercise.m */,
+				887DA71B146C747F00750D0A /* Examination.h */,
+				887DA71C146C747F00750D0A /* Examination.m */,
+				888FE1F31477D84A00B055E8 /* Student.h */,
+				888FE1F41477D84A00B055E8 /* Student.m */,
+				887DA717146C726D00750D0A /* Course.h */,
+				887DA718146C726D00750D0A /* Course.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +231,23 @@
 			name = "rvot-app3";
 			productName = "rvot-app3";
 			productReference = 889BF852146911910082640F /* rvot-app3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88E31806147989FA0033A822 /* mmtext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88E3181C147989FA0033A822 /* Build configuration list for PBXNativeTarget "mmtext" */;
+			buildPhases = (
+				88E31803147989FA0033A822 /* Sources */,
+				88E31804147989FA0033A822 /* Frameworks */,
+				88E31805147989FA0033A822 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mmtext;
+			productName = mmtext;
+			productReference = 88E31807147989FA0033A822 /* mmtext.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,6 +272,7 @@
 			projectRoot = "";
 			targets = (
 				889BF851146911910082640F /* rvot-app3 */,
+				88E31806147989FA0033A822 /* mmtext */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +288,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88E31805147989FA0033A822 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E3180F147989FA0033A822 /* InfoPlist.strings in Resources */,
+				88E31815147989FA0033A822 /* Credits.rtf in Resources */,
+				88E3181B147989FA0033A822 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -169,9 +305,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8871B0AB147AC8E40016B365 /* SHDataMatrixReader.m in Sources */,
 				889BF863146911910082640F /* main.m in Sources */,
-				889BF86A146911910082640F /* RVAppDelegate.m in Sources */,
 				889BF870146911910082640F /* rvot_app3.xcdatamodeld in Sources */,
+				887DA719146C726D00750D0A /* Course.m in Sources */,
+				887DA71D146C747F00750D0A /* Examination.m in Sources */,
+				8826907F14769AE600128D82 /* Exercise.m in Sources */,
+				882690831476BB8000128D82 /* Issue.m in Sources */,
+				888FE1F51477D84A00B055E8 /* Student.m in Sources */,
+				888FE1F81477E71100B055E8 /* RVStudentController.m in Sources */,
+				88E3177D14792FB90033A822 /* RVIssueController.m in Sources */,
+				88E31822147992FF0033A822 /* SHDataMatrixWriter.h in Sources */,
+				88E31824147993180033A822 /* SHDataMatrixWriter.m in Sources */,
+				8871B0AA147A99310016B365 /* RVAppDelegate.m in Sources */,
+				8882DE00147CEAB20070010B /* Marking.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88E31803147989FA0033A822 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88E17148147A67C300A70005 /* SHDataMatrixWriter.m in Sources */,
+				88E31811147989FA0033A822 /* main.m in Sources */,
+				88E3181F14798A460033A822 /* SHDataMatrixReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +355,31 @@
 			isa = PBXVariantGroup;
 			children = (
 				889BF86C146911910082640F /* en */,
+			);
+			name = MainMenu.xib;
+			path = "rvot-app3";
+			sourceTree = "<group>";
+		};
+		88E3180D147989FA0033A822 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E3180E147989FA0033A822 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		88E31813147989FA0033A822 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E31814147989FA0033A822 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		88E31819147989FA0033A822 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E3181A147989FA0033A822 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -272,6 +454,28 @@
 			};
 			name = Release;
 		};
+		88E3181D147989FA0033A822 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mmtext/mmtext-Prefix.pch";
+				INFOPLIST_FILE = "mmtext/mmtext-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		88E3181E147989FA0033A822 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mmtext/mmtext-Prefix.pch";
+				INFOPLIST_FILE = "mmtext/mmtext-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -291,6 +495,16 @@
 				889BF875146911910082640F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88E3181C147989FA0033A822 /* Build configuration list for PBXNativeTarget "mmtext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88E3181D147989FA0033A822 /* Debug */,
+				88E3181E147989FA0033A822 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -301,7 +515,8 @@
 				889BF86F146911910082640F /* rvot_app3.xcdatamodel */,
 			);
 			currentVersion = 889BF86F146911910082640F /* rvot_app3.xcdatamodel */;
-			path = rvot_app3.xcdatamodeld;
+			name = rvot_app3.xcdatamodeld;
+			path = "rvot-app3/rvot_app3.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
