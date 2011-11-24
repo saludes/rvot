@@ -8,7 +8,7 @@
 
 #import "Student.h"
 #import "Issue.h"
-
+#import "Marking.h"
 
 @implementation Student
 
@@ -33,4 +33,11 @@
     return [NSString stringWithFormat:@"%@, %@",self.lName, self.fName]; 
 }
 
+- (NSDecimalNumber*)lastGrade {
+    NSArray *marks = [self.markings sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"stamp" ascending:NO]]];
+    if ([marks count] > 0)
+        return [[marks objectAtIndex:0] grade];
+    else
+        return nil;
+}
 @end

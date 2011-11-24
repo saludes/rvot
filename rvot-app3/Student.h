@@ -29,5 +29,6 @@
 - (void)removeMarkingsObject:(NSManagedObject *)value;
 - (void)addMarkings:(NSSet *)values;
 - (void)removeMarkings:(NSSet *)values;
+- (NSDecimalNumber*)lastGrade;
 
 @end
