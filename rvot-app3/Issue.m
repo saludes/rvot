@@ -100,7 +100,7 @@
            CFMutableAttributedStringRef attrString =
                     CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
            CFAttributedStringReplaceString (attrString,
-                                            CFRangeMake(0, 0), (CFStringRef)[NSString stringWithFormat:@"%@, %@", aStudent.lName, aStudent.fName]);
+                                            CFRangeMake(0, 0), (CFStringRef)[NSString stringWithFormat:@"%@, %@\nExercici %d", aStudent.lName, aStudent.fName, k+1]);
            
            // Create a color and add it as an attribute to the string.
            /* CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
@@ -112,7 +112,7 @@
            */
            // Create the framesetter with the attributed string.
            CTFramesetterRef framesetter =
-           CTFramesetterCreateWithAttributedString(attrString);
+                CTFramesetterCreateWithAttributedString(attrString);
            CFRelease(attrString);
            
            // Create the frame and draw it into the graphics context
