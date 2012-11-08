@@ -37,13 +37,14 @@
 
 
 - (Student*)readStudentIn:(NSPDFImageRep*)rep forExercise:(int*)nExerc using:(SHDataMatrixReader*)reader {
-#define BOX  (150.0)
+#define RELBOX (0.2)
 #define WRITEPNG 0
     Issue *issue = self.selectedIssue;
     NSAssert(issue, @"No issue selected");
+    CGFloat h = [rep bounds].size.height;
     NSString* issueFmtDate = [issue.date descriptionWithCalendarFormat:@"%Y%m%d" timeZone:nil locale:nil];
-    NSRect srcRect = NSMakeRect(50.0, 800.0, BOX, BOX);
-    NSRect trgRect = NSMakeRect(0.0, 0.0, BOX, BOX);
+    NSRect srcRect = NSMakeRect( 0.,h*(1-RELBOX),h*RELBOX, h*RELBOX); //NSMakeRect(10.0, 670.0, BOX, BOX);
+    NSRect trgRect = NSMakeRect(0.0, 0.0, h*RELBOX, h*RELBOX);
     NSImage* srcImg = [[NSImage alloc] initWithSize:[rep size]];
     NSImage* dmtxImg = [[NSImage alloc] initWithSize:trgRect.size];
     [srcImg addRepresentation:rep];
@@ -51,6 +52,8 @@
     [srcImg drawInRect:trgRect fromRect:srcRect operation:NSCompositeCopy fraction:1.0];
     [dmtxImg unlockFocus];
     
+    
+     
 #if (WRITEPNG == 1)
     NSBitmapImageRep *bmpImageRep = [[NSBitmapImageRep alloc]initWithData:[dmtxImg TIFFRepresentation]];
     [dmtxImg addRepresentation:bmpImageRep];

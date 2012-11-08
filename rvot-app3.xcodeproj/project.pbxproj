@@ -23,7 +23,6 @@
 		889BF86D146911910082640F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889BF86B146911910082640F /* MainMenu.xib */; };
 		889BF870146911910082640F /* rvot_app3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 889BF86E146911910082640F /* rvot_app3.xcdatamodeld */; };
 		88E17148147A67C300A70005 /* SHDataMatrixWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31823147993180033A822 /* SHDataMatrixWriter.m */; };
-		88E1714A147A97D700A70005 /* libdmtx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3179014797F470033A822 /* libdmtx.dylib */; };
 		88E3177D14792FB90033A822 /* RVIssueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E3177C14792FB90033A822 /* RVIssueController.m */; };
 		88E31809147989FA0033A822 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BF856146911910082640F /* Cocoa.framework */; };
 		88E3180F147989FA0033A822 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88E3180D147989FA0033A822 /* InfoPlist.strings */; };
@@ -35,6 +34,7 @@
 		88E31822147992FF0033A822 /* SHDataMatrixWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = 88E31821147992FF0033A822 /* SHDataMatrixWriter.h */; };
 		88E31824147993180033A822 /* SHDataMatrixWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E31823147993180033A822 /* SHDataMatrixWriter.m */; };
 		88E3983514742CE4001725CA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E3983414742CE4001725CA /* Quartz.framework */; };
+		88E539E715A0608E006A49C4 /* libdmtx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E539E615A0608E006A49C4 /* libdmtx.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,6 @@
 		88E3177B14792FB90033A822 /* RVIssueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RVIssueController.h; sourceTree = "<group>"; };
 		88E3177C14792FB90033A822 /* RVIssueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RVIssueController.m; sourceTree = "<group>"; };
 		88E3179014797F470033A822 /* libdmtx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdmtx.dylib; path = usr/local/lib/libdmtx.dylib; sourceTree = SDKROOT; };
-		88E31792147980520033A822 /* dmtx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dmtx.h; path = ../usr/local/include/dmtx.h; sourceTree = DEVELOPER_DIR; };
 		88E31793147983C00033A822 /* SHDataMatrixReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDataMatrixReader.h; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixReader.h"; sourceTree = SOURCE_ROOT; };
 		88E31794147983C00033A822 /* SHDataMatrixReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDataMatrixReader.m; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixReader.m"; sourceTree = SOURCE_ROOT; };
 		88E31807147989FA0033A822 /* mmtext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mmtext.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +81,10 @@
 		88E31821147992FF0033A822 /* SHDataMatrixWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDataMatrixWriter.h; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixWriter.h"; sourceTree = SOURCE_ROOT; };
 		88E31823147993180033A822 /* SHDataMatrixWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDataMatrixWriter.m; path = "rvot-app3/dmtx-wrappers/cocoa/SHDataMatrixWriter.m"; sourceTree = SOURCE_ROOT; };
 		88E3983414742CE4001725CA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		88E539E015A05CF0006A49C4 /* dmtx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dmtx.h; path = "rvot-app3/libdmtx/dmtx.h"; sourceTree = SOURCE_ROOT; };
+		88E539E215A05DB5006A49C4 /* libdmtx.la */ = {isa = PBXFileReference; lastKnownFileType = text; name = libdmtx.la; path = "rvot-app3/libdmtx/libdmtx.la"; sourceTree = "<group>"; };
+		88E539E415A05FCC006A49C4 /* libdmtx.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdmtx.0.dylib; path = ../../../../../../../usr/local/lib/libdmtx.0.dylib; sourceTree = "<group>"; };
+		88E539E615A0608E006A49C4 /* libdmtx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdmtx.dylib; path = "rvot-app3/libdmtx/libdmtx.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E1714A147A97D700A70005 /* libdmtx.dylib in Frameworks */,
+				88E539E715A0608E006A49C4 /* libdmtx.dylib in Frameworks */,
 				88E3983514742CE4001725CA /* Quartz.framework in Frameworks */,
 				889BF857146911910082640F /* Cocoa.framework in Frameworks */,
 			);
@@ -110,6 +113,9 @@
 		889BF847146911900082640F = {
 			isa = PBXGroup;
 			children = (
+				88E539E615A0608E006A49C4 /* libdmtx.dylib */,
+				88E539E415A05FCC006A49C4 /* libdmtx.0.dylib */,
+				88E539E215A05DB5006A49C4 /* libdmtx.la */,
 				889BF86B146911910082640F /* MainMenu.xib */,
 				88EABE2D1477BD3D0017058C /* Model */,
 				889BF85C146911910082640F /* rvot-app3 */,
@@ -170,7 +176,7 @@
 		88E3180A147989FA0033A822 /* mmtext */ = {
 			isa = PBXGroup;
 			children = (
-				88E31792147980520033A822 /* dmtx.h */,
+				88E539E015A05CF0006A49C4 /* dmtx.h */,
 				88E31821147992FF0033A822 /* SHDataMatrixWriter.h */,
 				88E31793147983C00033A822 /* SHDataMatrixReader.h */,
 				88E31794147983C00033A822 /* SHDataMatrixReader.m */,
@@ -438,6 +444,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rvot-app3/rvot-app3-Prefix.pch";
 				INFOPLIST_FILE = "rvot-app3/rvot-app3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/rvot-app3/libdmtx\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -449,6 +459,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rvot-app3/rvot-app3-Prefix.pch";
 				INFOPLIST_FILE = "rvot-app3/rvot-app3-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/rvot-app3/libdmtx\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
