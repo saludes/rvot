@@ -13,8 +13,8 @@ space on top of page) (`Set document`)
 ##After the sitting
 
 6. Scan all pages and save to pdf
-7. Upload the pdf to your table. Use your favorite app to annotate the
-exercices adding a text annotation on top of the datamatrix containing the
+7. Upload the pdf to your tablet. Use your favorite app to annotate the
+exercices, adding a text annotation on top of the datamatrix containing the
 marking (numerical from 0 to 10) and nothing else.
 7. Run `Tag annotations` to generate a copy of this indexed by student name.
 8. Run `Markings` to obtain a csv file with all the markings. 
